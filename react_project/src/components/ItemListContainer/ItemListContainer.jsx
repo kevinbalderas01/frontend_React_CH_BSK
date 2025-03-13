@@ -1,13 +1,11 @@
 import {useFetch} from '../../customHooks/useFetch';
 import { useNavigate } from 'react-router-dom';
-
+import ItemLists from '../ItemLists/ItemLists';
 const ItemListContainer = () =>{
     const navigate = useNavigate()
     const { data, loading, error} = useFetch('https://fakestoreapi.com/products')
 
-    console.log(data);
-    console.log(loading);
-    console.log(error);
+    
 
     
     if (loading) {
@@ -20,7 +18,7 @@ const ItemListContainer = () =>{
 
     return (
         <>
-            {data?.map((prod)=> <div key={prod.id} style={{cursor:'pointer'}} onClick={()=> navigate(`/detail/${prod.id}`)}>{prod.title}</div>)}
+            <ItemLists data={data}></ItemLists>
         </>
         
     )

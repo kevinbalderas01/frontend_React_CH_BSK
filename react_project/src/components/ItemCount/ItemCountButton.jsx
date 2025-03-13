@@ -11,26 +11,13 @@ import {useCount} from '../../customHooks/useCount'
 
 
 
-export default function ItemCount() {
+export default function ItemCountButton() {
 
     const {count, decrement, increment, reset} = useCount(0,1,10)
     
     return (
         <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-            sx={{ height: 180 }}
-            image="/src/assets/headphones.jpg"
-            title="headphones"
-        />
-        <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-            Headphones
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-            </Typography>
-        </CardContent>
+        
         <CardActions>
             <Button onClick={increment} sx={{fontSize:"30px"}}>+</Button>
             <div>{count}</div>

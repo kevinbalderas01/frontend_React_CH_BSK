@@ -16,7 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import CustomizedBadges from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 
-const pages = ['Blog', 'Contact', 'Products'];
+const pages = ['Blog', 'Electronica', 'Joyas'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
@@ -91,9 +91,9 @@ function NavBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
+                  </MenuItem>
               ))}
             </Menu>
           </Box>
@@ -118,6 +118,7 @@ function NavBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              <Link to={`/category/${page.toLowerCase()}`}>
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -125,6 +126,8 @@ function NavBar() {
               >
                 {page}
               </Button>
+              </Link>
+
             ))}
             <CustomizedBadges></CustomizedBadges>
 
